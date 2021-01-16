@@ -1,0 +1,147 @@
+.btn-primario1 {
+    color: #fff;
+    font-weight: bold !important;
+    font-size: 14px !important;
+    text-decoration: none !important;
+
+    background: #ff4f00;
+    border-radius: 26px;
+    line-height: 40px;
+    text-align: center;
+    display: inline-block;
+    width: 190px;
+    height: 40px;
+
+    border: 0;
+}
+
+.btn-primario1:hover {
+    color: #fff;
+    font-weight: bold !important;
+    font-size: 14px !important;
+    text-decoration: none !important;
+
+    background: #0571CD;
+}
+
+.btn-primario1:active {
+    background: #ff4f00;
+}
+
+
+.btn-primario2 {
+    color: #fff;
+    font-weight: bold !important;
+    font-size: 11px !important;
+    text-decoration: none !important;
+
+    background: #ff4f00;
+    border-radius: 20px;
+    line-height: 28px;
+    text-align: center;
+    display: inline-block;
+    width: 125px;
+    height: 28px;
+
+    border: 0;
+
+}
+
+.btn-primario2:hover {
+    color: #fff;
+    font-weight: bold !important;
+    font-size: 11px !important;
+    text-decoration: none !important;
+
+    background: #0571CD;
+}
+
+.btn-primario2:active {
+    background: #ff4f00;
+}
+
+
+.btn-secundario2 {
+    color: #003C71;
+    font-weight: bold !important;
+    font-size: 11px !important;
+    text-decoration: none !important;
+
+
+    box-sizing: border-box;
+
+    background: #E5E5E5;
+    border: 2px solid #003C71;
+    border-radius: 26px;
+    line-height: 24px;
+    text-align: center;
+    display: inline-block;
+
+    width: 100px;
+    height: 28px;
+
+
+}
+
+.btn-secundario2:hover {
+
+    font-weight: bold !important;
+    font-size: 11px !important;
+    text-decoration: none !important;
+
+    background: #4AC4E8;
+    border: 2px solid #4AC4E8;
+    color: white;
+
+}
+
+.btn-secundario2:active {
+    color: #003C71;
+    background: #E5E5E5;
+    border: 2px solid #003C71;
+}
+
+
+.btn-secundario1 {
+    color: #003C71;
+    font-weight: bold !important;
+    font-size: 16px !important;
+    text-decoration: none !important;
+
+    box-sizing: border-box;
+
+    background: #E5E5E5;
+    border: 2px solid #003C71;
+    border-radius: 26px;
+    line-height: 36px;
+    text-align: center;
+    display: inline-block;
+
+    width: 190px;
+    height: 40px;
+}
+
+.btn-secundario1:hover {
+    font-weight: bold !important;
+    font-size: 16px !important;
+    text-decoration: none !important;
+
+    background: #4AC4E8;
+    border: 2px solid #4AC4E8;
+    color: white;
+
+}
+
+.btn-secundario1:active {
+    color: #003C71;
+    background: #E5E5E5;
+    border: 2px solid #003C71;
+}
+
+.btn-secundario2:focus {
+    outline: none;
+}
+
+.btn-secundario1:focus {
+    outline: none;
+}
