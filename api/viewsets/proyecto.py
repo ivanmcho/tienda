@@ -9,6 +9,7 @@ from rest_framework.response import Response
 from rest_framework.settings import api_settings
 from rest_framework import status, filters, viewsets
 from api.models import Producto, Empresa
+from django.contrib.auth.models import User
 from api.serializers import ProductoSerializer, ProductoRegistroSerializer
 
 from django.db import transaction
@@ -57,14 +58,16 @@ class ProductoViewset(viewsets.ModelViewSet):
                         empresa = Empresa.objects.get(pk=idEmpresa)
                     
                     precio = data.get('precio')
-                    vendedor = request.user
-                    print(precio, vendedor.id,"hola")
+                    vendedor = request.user.id
+                    vendedorF=User.objects.get(
+                        pk=vendedor)
+                    print(precio, vendedorF,"hola")
 
                     proyecto = Producto.objects.create(
                         idEmpresa=empresa,
                         nombre=data.get('nombre'),
                         precio=precio,
-                        vendedor=vendedor,
+                        vendedor=vendedorF,
 
                     )
                     print("holassdf")

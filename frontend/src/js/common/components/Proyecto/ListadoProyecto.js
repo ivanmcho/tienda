@@ -115,6 +115,15 @@ class Sucursal extends Component {
                     >
                         Precio
                     </TableHeaderColumn>
+                    <TableHeaderColumn
+                        dataField="vendedor"
+                        dataSort
+                        dataFormat={(cell) => {
+                            return cell.label;
+                        }}
+                    >
+                        vendedor
+                    </TableHeaderColumn>
                 </Grid>
             </div>
         );

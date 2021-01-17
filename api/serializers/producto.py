@@ -3,6 +3,7 @@ from api.models import Producto
 
 class ProductoSerializer(serializers.ModelSerializer):
     idEmpresa = serializers.SerializerMethodField("getEmpresa")
+    vendedor = serializers.SerializerMethodField("getVendedor")
     #empresa = serializers.SerializerMethodField(read_only=True)
 
     class Meta:
@@ -13,6 +14,11 @@ class ProductoSerializer(serializers.ModelSerializer):
     def getEmpresa(self, obj):
         if(obj.idEmpresa is not None):
             return {'value': obj.idEmpresa.id, 'label': obj.idEmpresa.nombre}
+        return None
+
+    def getVendedor(self, obj):
+        if(obj.vendedor is not None):
+            return {'value': obj.vendedor.id, 'label': obj.vendedor.first_name}
         return None
 
 
