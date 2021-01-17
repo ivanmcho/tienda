@@ -86,6 +86,7 @@ export const createReducer = (storeId, endpoint, formName=undefined, resourceLis
 
     const crear = data => (dispatch) => {
         dispatch(setLoader(true));
+        console.log('Data: ', data);
         api.post(endpoint, data).then(() => {
             NotificationManager.success('Registro creado', 'Éxito', 3000);
             if (!!resourceList)

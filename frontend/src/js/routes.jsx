@@ -26,6 +26,9 @@ require('../style/index.css');
 import CrearEmpresa from "./common/components/Empresa/CrearEmpresaContainer";
 import Empresas from "./common/components/Empresa/ListadoContainer";
 
+import Proyectos from "./common/components/Proyecto/ListadoContainer";
+import CrearProyecto from "./common/components/Proyecto/CrearProyectoContainer";
+
 module.exports = (
     <div>
         <div className="container__content">
@@ -38,6 +41,7 @@ module.exports = (
                 <ProtectedRoute exact path="/grids" component={Grids} />
                 <ProtectedRoute exact path="/notifications" component={Notificaciones} />
                 <ProtectedRoute exact path="/tabs" component={ExampleTabs} />
+
                 <ProtectedRoute exact path="/empresa" component={Empresas} />
                 <ProtectedRoute
                     exact
@@ -53,6 +57,25 @@ module.exports = (
                     exact
                     path="/empresa/create"
                     component={CrearEmpresa}
+                />
+                
+
+                {/* ---PROYECTOS-- */}
+                <ProtectedRoute exact path="/proyecto" component={Proyectos} />
+                <ProtectedRoute
+                    exact
+                    path="/proyecto/:id/ver"
+                    component={CrearProyecto}
+                />
+                <ProtectedRoute
+                    exact
+                    path="/proyecto/:id/editar"
+                    component={CrearProyecto}
+                />
+                <ProtectedRoute
+                    exact
+                    path="/proyecto/create"
+                    component={CrearProyecto}
                 />
                 
                 <Route component={NotFound} />
