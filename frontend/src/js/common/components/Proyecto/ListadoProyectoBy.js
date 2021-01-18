@@ -112,7 +112,10 @@ class Sucursal extends Component {
                     <TableHeaderColumn
                         dataField="precio"
                         dataSort
-                        
+                        dataFormat={(cell) => {
+                            return 'Q.' + cell;
+                        }}
+
                     >
                         Precio
                     </TableHeaderColumn>

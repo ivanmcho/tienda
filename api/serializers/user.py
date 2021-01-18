@@ -38,3 +38,13 @@ class UserReadSerializer(serializers.ModelSerializer):
             'email',
             'profile',
         )
+
+class UserReportSerializer(serializers.ModelSerializer):
+    total_producto = serializers.FloatField(required=False)
+
+    class Meta:
+        model = User
+        fields = (
+            'username',
+            'total_producto',
+        )

@@ -89,9 +89,9 @@ class Sucursal extends Component {
                         dataAlign="center"
                         dataSort
                         dataFormat={standardActions({
-                            editar: "proyecto",
+                            editar: "compra",
                             // ver: "proyecto",
-                            eliminar,
+                            
                         })}
                     >
                         Acciones
@@ -113,7 +113,9 @@ class Sucursal extends Component {
                     <TableHeaderColumn
                         dataField="precio"
                         dataSort
-                        
+                        dataFormat={(cell) => {
+                            return 'Q.' + cell;
+                        }}
                     >
                         Precio
                     </TableHeaderColumn>

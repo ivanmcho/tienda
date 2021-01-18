@@ -7,8 +7,8 @@ class Producto(models.Model):
     nombre = models.CharField(max_length=200, null=True)
     idEmpresa = models.ForeignKey(Empresa, related_name="Empresa",blank=True, null=True ,on_delete=models.deletion.CASCADE)
     descripcion= models.TextField(max_length=255, null=True, blank=True )
-    precio = models.DecimalField(max_digits=5, decimal_places=2)
-    vendedor = models.ForeignKey(User, related_name="Vendedor", null=True ,on_delete=models.deletion.CASCADE)
+    precio = models.DecimalField(max_digits=7, decimal_places=2)
+    vendedor = models.ForeignKey(User, related_name="producto_user", null=True ,on_delete=models.deletion.CASCADE)
     comprador = models.ForeignKey(User, related_name="Comprador",blank=True, null=True ,on_delete=models.deletion.CASCADE)
     nombreComprador = models.CharField(max_length=200, null=True, blank=True)
     

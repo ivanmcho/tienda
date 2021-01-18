@@ -41,6 +41,43 @@ const listarProducto = (page = 1) => (dispatch, getStore) => {
     });
 };
 
+
+const crearCompra = (id, data) => (dispatch, getStore) => {
+    dispatch(baseReducer.actions.setLoader(true));
+    const resource = getStore();
+    console.log( 'resource ', resource )
+    let formData = {}
+    if ( getStore().form.ProyectoForm ) {
+        // formData = _.cloneDeep(getStore().form.formularioFiltro.values);
+        formData = getStore().form.ProyectoForm.values;
+    }
+    const parametro = { ...formData };
+    const estado = getStore().proyecto
+    
+    for (const key in parametro) {
+        if (!parametro[key]) {
+            continue;
+        }
+
+        if (key.substr(0, 2) == "id") {
+            console.log("tiene Id", key);
+            if (parametro[key].hasOwnProperty("value")) {
+                parametro[key] = parametro[key].value;
+            }
+        }
+    }
+    
+    console.log("Parametros", parametro);
+    api.post('compra', parametro).then(() => {
+        NotificationManager.success('Registro creado', 'Éxito', 3000);
+        if (!!resourceList)
+            dispatch(push(resourceList));
+    }).catch(() => {
+        NotificationManager.error('Error en la creación', 'ERROR');
+    }).finally(() => {
+        dispatch(baseReducer.actions.setLoader(false));
+    });
+};
 const listarTienda = (page = 1) => (dispatch, getStore) => {
     const resource = getStore()["proyecto"];
     const params = { page };
@@ -124,6 +161,7 @@ export const actions = {
     registrarEmpresa,
     listarProducto,
     listarTienda,
+    crearCompra,
     // showForm,
     ...baseReducer.actions,
 };

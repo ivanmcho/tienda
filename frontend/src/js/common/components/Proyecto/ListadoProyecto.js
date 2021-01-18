@@ -6,6 +6,13 @@ import { standardActions } from "../Utils/Grid/StandardActions";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
+import {
+    renderCurrency,
+    renderNumber,
+    renderFilePicker,
+    renderTextArea,
+} from "Utils/renderField/renderField";
+
 class Sucursal extends Component {
     componentWillMount = () => {
         this.props.listar();
@@ -111,7 +118,10 @@ class Sucursal extends Component {
                     <TableHeaderColumn
                         dataField="precio"
                         dataSort
-                        
+                        dataFormat={(cell) => {
+                            return 'Q.' + cell;
+                        }}
+
                     >
                         Precio
                     </TableHeaderColumn>

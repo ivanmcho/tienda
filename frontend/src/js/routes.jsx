@@ -31,6 +31,7 @@ import ProyectosVendedor from "./common/components/Proyecto/ListadoContainerBy";
 import ProyectosTienda from "./common/components/Proyecto/ListadoContainerTienda";
 
 import CrearProyecto from "./common/components/Proyecto/CrearProyectoContainer";
+import Compra from "./common/components/Compra/CrearProyectoContainer";
 
 module.exports = (
     <div>
@@ -83,6 +84,14 @@ module.exports = (
                     path="/proyecto/create"
                     component={CrearProyecto}
                 />
+                {/* ---PROYECTOS-- */}
+
+                <ProtectedRoute
+                    exact
+                    path="/compra/:id/editar"
+                    component={Compra}
+                />
+
                 
                 <Route component={NotFound} />
             </Switch>
