@@ -27,6 +27,9 @@ import CrearEmpresa from "./common/components/Empresa/CrearEmpresaContainer";
 import Empresas from "./common/components/Empresa/ListadoContainer";
 
 import Proyectos from "./common/components/Proyecto/ListadoContainer";
+import ProyectosVendedor from "./common/components/Proyecto/ListadoContainerBy";
+import ProyectosTienda from "./common/components/Proyecto/ListadoContainerTienda";
+
 import CrearProyecto from "./common/components/Proyecto/CrearProyectoContainer";
 
 module.exports = (
@@ -62,6 +65,9 @@ module.exports = (
 
                 {/* ---PROYECTOS-- */}
                 <ProtectedRoute exact path="/proyecto" component={Proyectos} />
+                <ProtectedRoute exact path="/proyectoVendedor" component={ProyectosVendedor} />
+                <ProtectedRoute exact path="/tienda" component={ProyectosTienda} />
+
                 <ProtectedRoute
                     exact
                     path="/proyecto/:id/ver"

@@ -64,6 +64,8 @@ export const createReducer = (storeId, endpoint, formName=undefined, resourceLis
         params.search = resource.search;
         dispatch(setLoader(true));
         api.get(endpoint, params).then((response) => {
+            console.log("imprimiendo")
+            console.log(response)
             dispatch(setData(response));
             dispatch(setPage(page));
         }).catch(() => {
@@ -146,6 +148,10 @@ export const createReducer = (storeId, endpoint, formName=undefined, resourceLis
         eliminar,
         searchChange,
         onSortChange,
+        setData,
+        setPage,
+        setLoader,
+
     };
 
     // -----------------------------------

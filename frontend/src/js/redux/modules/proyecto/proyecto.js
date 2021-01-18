@@ -25,6 +25,40 @@ const baseReducer = createReducer(
     "/proyecto" //url del componente en el frontend.
 );
 
+const listarProducto = (page = 1) => (dispatch, getStore) => {
+    const resource = getStore()["proyecto"];
+    const params = { page };
+    params.ordering = resource.ordering;
+    params.search = resource.search;
+    dispatch(baseReducer.actions.setLoader(true));
+    api.get("proyecto/productosVendedor", params).then((response) => {
+        console.log(response);
+        dispatch(baseReducer.actions.setData(response));
+        dispatch(baseReducer.actions.setPage(page));
+    }).catch(() => {
+    }).finally(() => {
+        dispatch(baseReducer.actions.setLoader(false));
+    });
+};
+
+const listarTienda = (page = 1) => (dispatch, getStore) => {
+    const resource = getStore()["proyecto"];
+    const params = { page };
+    params.ordering = resource.ordering;
+    params.search = resource.search;
+    dispatch(baseReducer.actions.setLoader(true));
+    api.get("proyecto/tienda", params).then((response) => {
+        console.log(response);
+        dispatch(baseReducer.actions.setData(response));
+        dispatch(baseReducer.actions.setPage(page));
+    }).catch(() => {
+    }).finally(() => {
+        dispatch(baseReducer.actions.setLoader(false));
+    });
+};
+
+
+
 const registrarProyecto = () => (dispatch, getState) => {
     console.log("NaDA");
     const formData = getState().form.ProyectoForm.values;
@@ -88,6 +122,8 @@ export const reducers = {
 export const actions = {
     registrarProyecto,
     registrarEmpresa,
+    listarProducto,
+    listarTienda,
     // showForm,
     ...baseReducer.actions,
 };

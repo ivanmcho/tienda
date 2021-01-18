@@ -25,10 +25,4 @@ class ProductoSerializer(serializers.ModelSerializer):
 class ProductoRegistroSerializer(serializers.ModelSerializer):
        class Meta:
         model = Producto
-        fields = (
-                'nombre',
-                'idEmpresa',
-                'precio',
-                'vendedor',
-
-            )
+        fields = '__all__'

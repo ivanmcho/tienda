@@ -115,4 +115,32 @@ class ProductoViewset(viewsets.ModelViewSet):
         return Response({"results": lista},
                         status=status.HTTP_200_OK)
 
+    @action(methods=["get"], detail=False)
+    def productosVendedor(self, request, *args, **kwargs):
+        # id = request.GET["id"
+        vendedor = request.user.id
+        productos = Producto.objects.filter(vendedor=vendedor)
+        page = self.paginate_queryset(productos)
+        if page is not None:
+            serializer = ProductoSerializer(page, many=True)
+            return self.get_paginated_response(serializer.data)
+
+        serializer = ProductoSerializer(productos, many=True)
+        # RegistroBitacora.crearEmpresa(request.user, serializer.data)
+        return Response({"results": serializer.data}, status=status.HTTP_201_CREATED)
+
+    @action(methods=["get"], detail=False)
+    def tienda(self, request, *args, **kwargs):
+        # id = request.GET["id"
+        vendedor = request.user.id
+        productos = Producto.objects.exclude(vendedor=vendedor)
+        page = self.paginate_queryset(productos)
+        if page is not None:
+            serializer = ProductoSerializer(page, many=True)
+            return self.get_paginated_response(serializer.data)
+
+        serializer = ProductoSerializer(productos, many=True)
+        # RegistroBitacora.crearEmpresa(request.user, serializer.data)
+        return Response({"results": serializer.data}, status=status.HTTP_201_CREATED)
+
     
