@@ -2,6 +2,7 @@ import { handleActions } from "redux-actions";
 import { createReducer } from "../baseReducer/baseReducer";
 import { api } from "api";
 import { initialize as initializeForm } from "redux-form";
+import {NotificationManager} from 'react-notifications';
 
 // ------------------------------------
 // Constants
@@ -66,7 +67,6 @@ const crearCompra = (id, data) => (dispatch, getStore) => {
             }
         }
     }
-    
     console.log("Parametros", parametro);
     api.post('compra', parametro).then(() => {
         NotificationManager.success('Registro creado', 'Éxito', 3000);

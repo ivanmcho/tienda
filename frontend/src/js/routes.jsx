@@ -32,6 +32,9 @@ import ProyectosTienda from "./common/components/Proyecto/ListadoContainerTienda
 
 import CrearProyecto from "./common/components/Proyecto/CrearProyectoContainer";
 import Compra from "./common/components/Compra/CrearProyectoContainer";
+import CompraCliente from "./common/components/Compra/CrearProyectoClienteContainer";
+
+import Reporte from "./common/components/Reportes/reportesContainer";
 
 module.exports = (
     <div>
@@ -65,7 +68,7 @@ module.exports = (
                 
 
                 {/* ---PROYECTOS-- */}
-                <ProtectedRoute exact path="/proyecto" component={Proyectos} />
+                <Route exact path="/proyecto" component={Proyectos} />
                 <ProtectedRoute exact path="/proyectoVendedor" component={ProyectosVendedor} />
                 <ProtectedRoute exact path="/tienda" component={ProyectosTienda} />
 
@@ -90,6 +93,18 @@ module.exports = (
                     exact
                     path="/compra/:id/editar"
                     component={Compra}
+                />
+
+                <Route
+                    exact
+                    path="/compraCliente/:id/editar"
+                    component={CompraCliente}
+                />
+
+                <ProtectedRoute
+                    exact
+                    path="/reporte"
+                    component={Reporte}
                 />
 
                 

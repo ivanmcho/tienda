@@ -42,17 +42,15 @@ class Sucursal extends Component {
                             }}
                             className="txt-12"
                         >
-                            Proyectos
+                            Productos
                         </div>
                     </div>
                 </div>
                 <div className="d-flex flex-wrap mb-2  mt-4">
-                    <h3 className="txt-22-n color-003 w-50">proyectos</h3>
+                    <h3 className="txt-22-n color-003 w-50">Tienda</h3>
 
                     <div className="d-flex flex-row w-50 align-items-center justify-content-end">
-                        <a className="btn-primario2" href="/#/proyecto/create">
-                            Agregar Proyecto
-                        </a>
+                        
 
                         <div className="flex-fill d-flex align-items-center ml-3">
                             <input
@@ -126,7 +124,7 @@ class Sucursal extends Component {
                             return cell.label;
                         }}
                     >
-                        vendedor
+                        Vendedor
                     </TableHeaderColumn>
                 </Grid>
             </div>

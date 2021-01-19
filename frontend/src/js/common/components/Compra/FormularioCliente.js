@@ -126,6 +126,14 @@ const ProyectoForm = (props) => {
                                 value={55}
                             />
                         </div>
+                        <div className="form-group has-feedback flex-1 mb-4">
+                            <label className="txt-12-n color-057">Nombre</label>
+                            <Field
+                                component={renderField}
+                                name="nombre"
+                                disabled={ver}
+                            />
+                        </div>
                     </div>
                     <br />
                     <br />
@@ -133,7 +141,7 @@ const ProyectoForm = (props) => {
                         {isNested ? null : (
                             <a
                                 className="btn-secundario2  mr-2"
-                                href="/#/tienda"
+                                href="/#/proyecto"
                             >
                                 Cancelar
                             </a>
@@ -144,7 +152,7 @@ const ProyectoForm = (props) => {
                                 onClick={isNested ? handleSubmit : null}
                                 className="btn-primario2"
                             >
-                                Comprar
+                                {actualizar ? "Actualizar" : "Registrar"}
                             </button>
                         )}
                     </div>

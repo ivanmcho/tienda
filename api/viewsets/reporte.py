@@ -23,25 +23,30 @@ class ReporteView(GenericViewSet):
     def reportePrincipal(self, request, *args, **kwargs):
         try:
             #Total de ventas por producto
+            print("hola empezando")
             vendedor = request.user.id
             productos = Producto.objects.filter(vendedor=vendedor)
             total_producto = User.objects.annotate(total_venta=Sum("producto_user__compra_producto__total"))
-            total_producto = total_producto.filter(pk=vendedor)
-
+            
+            print("hola otra")
             #Total venta
             total_venta = 0
             queryset = Compra.objects.aggregate(total_Sum=Sum('total'))
-            if queryset is None:
-                total_venta = queryset['total']
+            if queryset is not None:
+                total_venta = queryset['total_Sum']
+                print("totalventassss")
 
+            
             #Promedio de precios manejados
             promedio_product = 0.00
             queryset = Producto.objects.filter(vendedor= vendedor).aggregate(promedioProducto = Avg('precio'))
-            if queryset is None:
+            if queryset is not None:
                 promedio_product = queryset['promedioProducto']
-            
+
+            print("Total_", total_venta)
+            print("Promedio_product", promedio_product)
             data = {
-                'total_producto': UserReportSerializer(total_producto).data,
+                'total_producto': UserReportSerializer(total_producto, many=True).data,
                 'total_venta': total_venta,
                 'promedio_product': promedio_product,
             }

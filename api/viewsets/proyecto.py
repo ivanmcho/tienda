@@ -17,7 +17,8 @@ from copy import deepcopy
 
 
 class ProductoViewset(viewsets.ModelViewSet):
-    queryset = Producto.objects.filter(activo=True)
+    
+    queryset = Producto.objects.filter(activo=True).order_by("-creado")
 
     filter_backends = (DjangoFilterBackend,
                        filters.SearchFilter, filters.OrderingFilter)
